@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: patient-service-test
+server:
+  port: 8070
