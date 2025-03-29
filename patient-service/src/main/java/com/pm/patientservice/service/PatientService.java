@@ -36,7 +36,7 @@ public class PatientService {
     public PatientResponseDTO getPatient(UUID id) {
         return this.patientRepository.findById(id)
                 .map(PatientMapper::toDTO)
-                .orElseThrow(() -> new PatientNotFoundException("Patient not found: "+id));
+                .orElseThrow(() -> new PatientNotFoundException("Patient not found: " + id));
     }
 
 
@@ -78,6 +78,8 @@ public class PatientService {
         patient.setAddress(patientRequestDTO.getAddress());
         patient.setEmail(patientRequestDTO.getEmail());
         patient.setDateOfBirth(LocalDate.parse(patientRequestDTO.getDateOfBirth()));
+        patient.setRegistrationDate(LocalDate.now(ZoneId.of("Asia/Kolkata")));
+
 
         Patient updatedPatient = patientRepository.save(patient);
         return PatientMapper.toDTO(updatedPatient);
