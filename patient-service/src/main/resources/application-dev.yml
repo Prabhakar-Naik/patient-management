@@ -3,3 +3,6 @@ spring:
     name: patient-service-dev
 server:
   port: 8090
+logging:
+  level:
+    root: info

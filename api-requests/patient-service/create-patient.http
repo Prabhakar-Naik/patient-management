@@ -1,0 +1,28 @@
+### Creates a new patient entity
+POST http://lb-7e648e08.elb.localhost.localstack.cloud:4004/api/patients
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "John Doe Kafka Test",
+  "email": "kafka_test11@example.com",
+  "address": "123 main street22",
+  "dateOfBirth": "1995-09-09",
+  "registeredDate": "2024-11-28"
+}
+
+###
+
+POST http://localhost:8090/patients/createPatient
+Content-Type: application/json
+
+{
+  "firstName": "John Doe",
+  "lastName": "Kafka Test",
+  "email": "kafka_test11@example.com",
+  "phoneNumber": "9485748573",
+  "address": "123 main street22",
+  "gender": "MALE",
+  "dateOfBirth": "2024-11-28"
+}
+
