@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: billing-service-test
+server:
+  port: 8071

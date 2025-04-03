@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: billing-service-prod
+server:
+  port: 9091

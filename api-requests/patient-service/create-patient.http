@@ -17,10 +17,10 @@ POST http://localhost:8090/patients/createPatient
 Content-Type: application/json
 
 {
-  "firstName": "John Doe",
-  "lastName": "Kafka Test",
-  "email": "kafka_test11@example.com",
-  "phoneNumber": "9485748573",
+  "firstName": "Praveen billing account and kafka event",
+  "lastName": "varaprasad billing account and kafka event",
+  "email": "billingaccount_kafka@example.com",
+  "phoneNumber": "9485748597",
   "address": "123 main street22",
   "gender": "MALE",
   "dateOfBirth": "2024-11-28"
