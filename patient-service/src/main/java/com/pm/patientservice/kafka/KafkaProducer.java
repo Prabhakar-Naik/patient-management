@@ -22,6 +22,7 @@ public class KafkaProducer {
     }
 
     public void sendEvent(@Nonnull Patient patient) {
+
         PatientEvent event = PatientEvent.newBuilder()
                 .setPatientId(patient.getId().toString())
                 .setFirstName(patient.getFirstName())
