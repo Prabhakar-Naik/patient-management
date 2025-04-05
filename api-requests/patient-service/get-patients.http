@@ -7,3 +7,12 @@ GET http://localhost:8090/patients/getPatients
 
 ###
 GET http://localhost:8090/patients/cd601c70-682e-4e9e-9274-593a8e726c58
+
+
+
+# api-gateway --> client-api hitting ---> internally calls http://patient-service:8090/patients/getPatients
+###
+GET http://localhost:4004/api/patients/getPatients
+
+###
+GET http://localhost:4004/api/patients/a574890c-0c98-4b26-9c17-e09b6d8e8e5a

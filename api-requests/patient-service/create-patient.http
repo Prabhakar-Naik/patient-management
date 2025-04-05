@@ -25,3 +25,19 @@ Content-Type: application/json
   "gender": "MALE",
   "dateOfBirth": "2024-11-28"
 }
+
+
+### api-gateway --> client-api hitting ---> internally calls http://patient-service:8090/patients/getPatients
+###
+POST http://localhost:4004/api/patients/createPatient
+Content-Type: application/json
+
+{
+  "firstName": "Praveen kafka Test",
+  "lastName": "varaprasad consumer",
+  "email": "billingaccouna_consumer@example.com",
+  "phoneNumber": "9495748579",
+  "address": "123 main street22",
+  "gender": "MALE",
+  "dateOfBirth": "2024-11-28"
+}
