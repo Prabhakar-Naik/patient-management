@@ -23,11 +23,10 @@ public class KafkaConsumer {
             // ... perform any business related to analytics here
 
             log.info("Received Patient Event: [PatientId={},PatientFirstName={}, PatientLastName={},PatientEmail={},PatientPhoneNumber={}]",
-                    patientEvent.getPatientId(),
-                    patientEvent.getFirstName(),
+                    patientEvent.getPatientId(), patientEvent.getFirstName(),
                     patientEvent.getLastName(),
-                    patientEvent.getEmail(),
-                    patientEvent.getPhone());
+                    patientEvent.getEmail(), patientEvent.getPhone());
+
         }catch (InvalidProtocolBufferException e) {
             log.error("Error deserializing event {}",e.getMessage());
         }
