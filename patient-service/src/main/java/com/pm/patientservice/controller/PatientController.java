@@ -37,6 +37,7 @@ public class PatientController {
     }
 
     @GetMapping(value = "/{id}")
+    @Operation(summary = "Get Patient By Id")
     public ResponseEntity<PatientResponseDTO> getPatient(@PathVariable UUID id) {
         return ResponseEntity.ok().body(this.patientService.getPatient(id));
     }
@@ -48,8 +49,7 @@ public class PatientController {
             @Validated({Default.class, CreatePatientValidationGroup.class})
             @RequestBody PatientRequestDTO patientRequestDTO) {
 
-        PatientResponseDTO patientResponseDTO = patientService.createPatient(
-                patientRequestDTO);
+        PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
 
         return ResponseEntity.ok().body(patientResponseDTO);
     }
