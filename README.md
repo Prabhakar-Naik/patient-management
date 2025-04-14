@@ -240,4 +240,20 @@ Run options: --network internal
 ```
 AUTH_SERVICE_URL=http://auth-service:4005
 ```
+### API Documentation
+```
+patient-service: GET http://localhost:4004/api-docs/patients
+auth-service: GET http://localhost:4004/api-docs/auth
+```
+### Testing
+The project includes integration tests to ensure the correct interaction between microservices.
 
+### Contributing
+We welcome contributions to the Patient Management Microservice project!  Please follow these steps:
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Make your changes and commit them with descriptive commit messages.
+Push your changes to your fork.
+Submit a pull request to the main branch of the original repository.
+
+### License
