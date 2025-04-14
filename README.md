@@ -93,8 +93,11 @@ Ensure Docker is installed and running on your system.  You can download it from
 
 ### Building and Running the Services
 Navigate to the project root directory.
-<h3>Build the Docker images:</h3>
+<h1>Build the Docker images:</h1>
+<h2>PostgreSql databases for patient-service and auth-service</h2>
 Below details setup manually. everything comes under modify options in intellij
+
+# patient-service-db
 
 ```
 Name: patient-service-db
@@ -113,6 +116,128 @@ POSTGRES_DB=db;
 POSTGRES_PASSWORD=password;
 POSTGRES_USER=admin_user
 ```
+# auth-service-db
 
+```
+Name: auth-service-db
+Server: Docker
+Image ID or name: postgres:latest
+Container Name: auth-service-db
+Bind Ports: 5001:5432
+Bind Mounts: Host Path: C:\Users\prabh\db_volumes\auth-service-db, Container Path: /var/lib/postgresql/data
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
 
+```
+POSTGRES_DB=db;
+POSTGRES_PASSWORD=password;
+POSTGRES_USER=admin_user
+```
+# patient-service
+
+```
+Name: patient-service
+Server: Docker
+Dockerfile: patient-service\Dockerfile
+Image ID or name: patient-service:latest
+Container Name: patient-service
+Bind Ports: 8090:8090   -- temporarly
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
+
+```
+BILLING_SERVICE_ADDRESS=billing-service;
+BILLING_SERVICE_GRPC_PORT=8092;
+SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver;
+SPRING_DATASOURCE_PASSWORD=password;
+SPRING_DATASOURCE_URL=jdbc:postgresql://patient-service-db:5432/db;
+SPRING_DATASOURCE_USERNAME=admin_user;
+SPRING_JPA_DATABASE_PLATFORM=org.hibernate.dialect.PostgreSQLDialect;
+SPRING_JPA_HIBERNATE_DDL_AUTO=update;
+SPRING_JPA_SHOW_SQL=true;
+SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9082;
+SPRING_SQL_INIT_MODE=always
+```
+# auth-service
+
+```
+Name: auth-service
+Server: Docker
+Dockerfile: auth-service\Dockerfile
+Image ID or name: auth-service:latest
+Container Name: auth-service
+Bind Ports: 4005:4005   -- temporarly
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
+
+```
+JWT_SECRET=a05b31d48763abc6254ee6c5dc77d67266a0a7da1114f5763d0abf07bd66c724;
+SPRING_DATASOURCE_PASSWORD=password;
+SPRING_DATASOURCE_URL=jdbc:postgresql://auth-service-db:5432/db;
+SPRING_DATASOURCE_USERNAME=admin_user;
+SPRING_JPA_HIBERNATE_DDL_AUTO=update;
+SPRING_SQL_INIT_MODE=always
+```
+# kafka
+```
+Name: kafka
+Server: Docker
+Image ID or name: bitnami/kafka:latest
+Container Name: kafka
+Bind Ports: 9082:9082 9084:9084
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
+
+```
+KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9082,EXTERNAL://localhost:9084;
+KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER;
+KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9083;
+KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT;
+KAFKA_CFG_LISTENERS=PLAINTEXT://:9082,CONTROLLER://:9083,EXTERNAL://:9084;
+KAFKA_CFG_NODE_ID=0;KAFKA_CFG_PROCESS_ROLES=controller,broker
+```
+# billing-service
+```
+Name: billing-service
+Server: Docker
+Dockerfile: billing-service\Dockerfile
+Image ID or name: billing-service:latest
+Container Name: billing-service
+Bind Ports: 8091:8091 8092:8092
+Run options: --network internal
+```
+# analytics-service
+```
+Name: analytics-service
+Server: Docker
+Dockerfile: analytics-service\Dockerfile
+Image ID or name: analytics-service:latest
+Container Name: analytics-service
+Bind Ports: 8093:8093
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
+
+```
+SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9082
+```
+# api-gateway
+```
+Name: api-gateway
+Server: Docker
+Dockerfile: api-gateway\Dockerfile
+Image ID or name: api-gateway:latest
+Container Name: api-gateway
+Bind Ports: 4004:4004
+Run options: --network internal
+```
+<h3>Environment Variables:</h3>
+
+```
+AUTH_SERVICE_URL=http://auth-service:4005
+```
 
