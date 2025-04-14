@@ -1,5 +1,6 @@
 ### License
-<h5>Copyright © 2025 Code Prabhakar | Original Course Material by @Prabhakar-Naik</h5>
+<h6>Copyright © 2025 Code Prabhakar | Original Course Material by @Prabhakar-Naik</h6>
+
 # patient-management microservice
 
 This project implements a Patient Management system using a microservices architecture. It's designed to be modular, scalable, and resilient, leveraging various technologies like Spring Boot, Kafka, gRPC, and Docker.
