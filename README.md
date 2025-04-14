@@ -85,7 +85,7 @@ Follow these steps to get the project up and running:
 
 ```bash
 git clone https://github.com/Prabhakar-Naik/patient-management.git
-cd patient-management-microservice
+cd patient-management
 
 ```
 # Setting up Docker
