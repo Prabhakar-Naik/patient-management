@@ -65,4 +65,27 @@ Here's a breakdown of the key services:
 * **kafka-service:** This service enables asynchronous communication between microservices.  Instead of direct, synchronous calls, services can exchange messages via Kafka, improving performance, reliability, and decoupling.
 * **postgresql:** This represents the PostgreSQL database instance used by the microservices for persistent storage of data.  In a Dockerized environment, this would be a PostgreSQL container.
 
+## Technologies Used
+* Java/Spring Boot:  Backend services
+* Kafka: Asynchronous messaging
+* gRPC: Inter-service communication
+* PostgreSQL: Database
+* Docker: Containerization
+
+## Prerequisites
+* Java Development Kit (JDK) 17 or higher
+* Docker
+* Git
+
+## Getting Started
+
+Follow these steps to get the project up and running:
+
+### Cloning the Repository
+
+```bash
+git clone <your_repository_url>
+cd patient-management-microservice
+
+```
 
