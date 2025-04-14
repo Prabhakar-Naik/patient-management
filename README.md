@@ -18,3 +18,19 @@ This project implements a Patient Management system using a microservices archit
 * [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
+
+## Overview
+The Patient Management Microservice project provides a comprehensive solution for managing patient data and related healthcare workflows. It is built using a microservices architecture to ensure maintainability, scalability, and independent deployment of individual services.  The system handles patient registration, data management, billing, analytics, and integrates with other potential healthcare services.
+
+## Features
+
+* **Patient Management:** Create, read, update, and delete patient records.
+* **Billing:** Generate and manage patient bills.
+* **Authentication and Authorization:** Secure access to services with user authentication and authorization.
+* **Analytics:** Gather and analyze patient data for reporting and insights.
+* **API Gateway:** A single entry point for accessing different services.
+* **Asynchronous Communication:** Uses Kafka for message-based communication between services.
+* **Inter-service Communication:** Implements gRPC for efficient communication between services.
+* **Database Management:** Utilizes PostgreSQL for persistent data storage.
+* **Containerization:** Uses Docker for easy setup and deployment.
+* **Comprehensive Testing**: Includes Integration Tests for system reliability
