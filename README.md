@@ -84,7 +84,7 @@ Follow these steps to get the project up and running:
 ### Cloning the Repository
 
 ```bash
-git clone <your_repository_url>
+git clone https://github.com/Prabhakar-Naik/patient-management.git
 cd patient-management-microservice
 
 ```
