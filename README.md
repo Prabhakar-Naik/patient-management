@@ -88,4 +88,5 @@ git clone https://github.com/Prabhakar-Naik/patient-management.git
 cd patient-management-microservice
 
 ```
-
+# Setting up Docker
+Ensure Docker is installed and running on your system.  You can download it from <a href="https://www.docker.com/">get-started.</a>
