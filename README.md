@@ -88,5 +88,31 @@ git clone https://github.com/Prabhakar-Naik/patient-management.git
 cd patient-management
 
 ```
-# Setting up Docker
+### Setting up Docker
 Ensure Docker is installed and running on your system.  You can download it from <a href="https://www.docker.com/">get-started.</a>
+
+### Building and Running the Services
+Navigate to the project root directory.
+<h3>Build the Docker images:</h3>
+Below details setup manually. everything comes under modify options in intellij
+
+```
+Name: patient-service-db
+Server: Docker
+Image ID or name: postgres:latest
+Container Name: patient-service-db
+Bind Ports: 5000:5432
+Bind Mounts: Host Path: C:\Users\prabh\db_volumes\patient-service-db, Container Path: /var/lib/postgresql/data
+Run options: --network internal
+
+```
+<h3>Environment Variables:</h3>
+
+```
+POSTGRES_DB=db;
+POSTGRES_PASSWORD=password;
+POSTGRES_USER=admin_user
+```
+
+
+
